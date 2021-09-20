@@ -23,7 +23,6 @@ public class Bot extends TelegramLongPollingBot {
     
     @Override
     public void onUpdateReceived(Update update){
-        System.out.printIn("llego mensaje: " + update.toString());
         if(update.hasMessage()){
             //creo el objeto para enviar un mensaje
             SendMessage message = new SendMessage();
@@ -45,9 +44,7 @@ public class Bot extends TelegramLongPollingBot {
                         try{
                             execute(message1);
                             if(update.hasMessage()){
-                                SendMessage message2 = new SendMessage();
-                                message2.setText("ingrese segundo numero");
-                                b=Integer.parseInt(update.getMessage().getText());
+                                
                             }
                         }catch(TelegramApiException e){
                             e.printStackTrace();
@@ -57,8 +54,10 @@ public class Bot extends TelegramLongPollingBot {
             }catch(TelegramApiException e){
                  e.printStackTrace();
             }
-        }
-      }
+    }   
+        
+
+    }
     
     @Override
     public String getBotUsername() {
